@@ -3,60 +3,87 @@ import { motion } from "framer-motion";
 export default function OverlapSection() {
   return (
     <section
-      className="relative min-h-[160vh] flex items-center justify-center bg-center bg-cover"
+      className="relative min-h-[160vh] flex flex-col items-center justify-center bg-center bg-cover"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')", 
-        // <- dark code/dev styled bg
+          "url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')",
       }}
     >
       {/* dark overlay */}
       <div className="absolute inset-0 bg-black/70" />
 
+      {/* Heading */}
+      <div className="relative z-10 text-center mb-20">
+        <h2 className="text-5xl md:text-6xl font-extrabold mt-16 text-white">
+          Investment Plans
+        </h2>
+        <p className="text-gray-300 mt-4 text-lg">
+          Choose your path to success
+        </p>
+      </div>
+
       {/* wrapper */}
       <div className="relative z-10 flex gap-14 px-6 md:px-20">
-        {/* LEFT CARD */}
+        {/* LEFT CARD (Monthly Plan) */}
         <motion.div
           initial={{ opacity: 0, y: 120 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.4 }}
-          className="w-[420px] md:w-[480px] h-[620px] bg-orange-500 text-white p-12 shadow-2xl rounded-xl flex flex-col justify-between mt-16"
+          whileHover={{ scale: 1.05 }}
+          className="w-[420px] md:w-[480px] h-[620px] bg-orange-500 text-white p-12 rounded-xl flex flex-col justify-between mt-16 transition-all duration-300"
         >
           <div>
-            <h2 className="text-6xl font-extrabold mb-8">THE PODCAST</h2>
-            <span className="inline-block bg-white/20 px-6 py-2 rounded-full text-lg font-medium mb-8">
-              Coming soon
-            </span>
-            <p className="text-xl leading-relaxed">
-              Dive into the minds of visionaries leading groundbreaking
-              initiatives. Hear their stories and learn how they’re creating
-              real change across the world.
+            <h3 className="text-4xl font-bold mb-6">💰 Student-Friendly Pricing</h3>
+            <p className="text-lg mb-6">
+              Designed specifically for college budgets – less than your semester
+              textbooks! Flexible payment options available to make world-class
+              education accessible.
             </p>
+            <h4 className="text-2xl font-semibold mb-4">Monthly</h4>
+            <ul className="space-y-2 text-lg">
+              <li className="hover:text-yellow-200 transition">💵 $120/month</li>
+              <li>Pay for what you need</li>
+              <li>Full curriculum access</li>
+              <li>Community & support</li>
+              <li>Career assistance</li>
+            </ul>
           </div>
+          <button className="mt-8 bg-white text-orange-600 font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-orange-600 hover:text-white">
+            Choose Monthly
+          </button>
         </motion.div>
 
-        {/* RIGHT CARD */}
+        {/* RIGHT CARD (Full Program Plan) */}
         <motion.div
           initial={{ opacity: 0, y: 150 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: false, amount: 0.4 }}
-          className="w-[420px] md:w-[480px] h-[620px] bg-gradient-to-b from-gray-900 to-gray-700 text-white p-12 shadow-2xl rounded-xl flex flex-col justify-between mt-[320px] backdrop-blur-sm bg-opacity-80"
+          whileHover={{ scale: 1.05 }}
+          className="w-[420px] md:w-[480px] h-[620px] bg-white/10 backdrop-blur-lg text-white p-12 rounded-xl flex flex-col justify-between mt-[320px] transition-all duration-300"
         >
           <div>
-            <h2 className="text-4xl font-extrabold mb-8">THE CROWDFUNDING</h2>
-            <button className="flex items-center gap-3 text-xl font-medium group">
-              <span>→</span>
-              <span className="border-b border-white/50 group-hover:border-white transition">
-                View more
-              </span>
-            </button>
-            <p className="text-xl leading-relaxed mt-8">
-              Help us give a voice to the solutions shaping the sustainable
-              future. Be part of the journey and support impactful initiatives.
-            </p>
+            <span className="inline-block bg-green-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
+              Best Value
+            </span>
+            <h3 className="text-4xl font-bold mb-6">Full Program</h3>
+            <p className="text-lg mb-6">Complete upfront payment</p>
+            <div className="text-3xl font-extrabold mb-6 hover:text-green-400 transition">
+              $300 <span className="line-through text-gray-300 text-2xl">$360</span>
+            </div>
+            <ul className="space-y-2 text-lg">
+              <li>Save $60!</li>
+              <li>One-time payment</li>
+              <li>Full curriculum access</li>
+              <li>Community & support</li>
+              <li>Career assistance</li>
+              <li>Bonus materials</li>
+            </ul>
           </div>
+          <button className="mt-8 bg-white text-gray-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-gray-900 hover:text-white">
+            Choose Full Program
+          </button>
         </motion.div>
       </div>
     </section>

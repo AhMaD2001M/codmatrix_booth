@@ -82,7 +82,7 @@ const FifthComponent: React.FC = () => {
           viewport={{ once: true }}
           className="text-6xl font-bold mb-4 text-gray-400"
         >
-          Analytics
+          ARE MEMORIES
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -91,7 +91,7 @@ const FifthComponent: React.FC = () => {
           viewport={{ once: true }}
           className="text-xl mb-8 text-gray-700 max-w-lg"
         >
-          From $0.9k
+          With CODEMATRIX
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -100,7 +100,7 @@ const FifthComponent: React.FC = () => {
           viewport={{ once: true }}
           className="text-lg mb-8 text-gray-600 max-w-lg"
         >
-          End-to-end analytics for total clarity
+         CodeMatrix Academy is the most efficient way to bootstrap your prep and guide you through the job hunting process. We focus on techniques rather than just problems, making interviews much easier to crack.
         </motion.p>
         {/* Placeholder for a button if needed, similar to 'memories.tsx' */}
         {/* <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-blue-600 text-white py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition duration-300 shadow-md" > Learn More </motion.button> */}

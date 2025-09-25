@@ -4,23 +4,21 @@ export default function TimelineSection() {
   const steps = [
     {
       side: "left",
-      subtitle: " Month 1.",
-      title:
-        "Core Coding & Problem Solving: ",
-      
-      desc: " Python, Data Structures, Git/GitHub, Arrays, Strings, Linked Lists, Sorting & Searching Algorithms, Big-O, LeetCode, Project: Data Processing CLI Tool",
+      subtitle: " Core Coding & Problem Solving.",
+      title: "Month 1",
+      desc: "Python, Data Structures, Git/GitHub, Arrays, Strings, Linked Lists, Sorting & Searching Algorithms, Big-O, LeetCode, Project: Data Processing CLI Tool",
     },
     {
       side: "right",
-      title: "UNDERSTANDS & EXTRACTS DATA",
-      subtitle: "",
-      desc: "Reads, interprets, and inputs orders into your system with near-perfect accuracy.",
+      title: "Month 2 \n",
+      subtitle: "Full-Stack Foundations ",
+      desc: "  JavaScript, APIs, Databases ,JavaScript & DOM Manipulation ,Node.js & Express APIs , Database Design & CRUD Operations , Frontend-Backend Integration, Project: Full-Stack App (TBD)",
     },
     {
       side: "left",
-      title: "AI CREATES A SALES ORDER IN YOUR ERP",
-      subtitle: "IN SECONDS.",
-      desc: "No disruption, just seamless automation.",
+      title: "Month 3 \n",
+      subtitle: "Professional Skills & Career Prep",
+      desc: " System Design & Career Launch , System Design Fundamentals , Advanced Development Practices , Team Capstone Project ,Resume, LinkedIn & Interview Prep , Project: Team Capstone (TBD)",
     },
     {
       side: "",

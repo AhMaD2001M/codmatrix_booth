@@ -82,27 +82,34 @@ const Memories: React.FC = () => {
           viewport={{ once: true }}
           className="text-6xl font-bold mb-4 text-gray-400"
         >
-          Make new friends, guaranteed
+          Our Members Receive Offers From
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-xl mb-8 text-gray-700 max-w-lg"
-        >
-          Get matched with a group of carefully curated women in your city and
-          enjoy a series of guided, shared experiences together. All you have to
-          do is show up.
-        </motion.p>
+        <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.3 }}
+  viewport={{ once: true }}
+  className="grid grid-cols-2 sm:grid-cols-8 gap-8 items-center justify-center"
+>
+  {/* Example logos - replace src with your actual paths */}
+  <img src="/src/logos/google.svg" alt="FAANG" className="h-12 mx-auto" />
+  <img src="/src/logos/apple.svg" alt="Apple" className="h-12 mx-auto" />
+  <img src="/src/logos/microsoft.svg" alt="Microsoft" className="h-12 mx-auto" />
+  <img src="/src/logos/openai.svg" alt="OpenAI" className="h-12 mx-auto" />
+  <img src="/src/logos/linkedin.svg" alt="LinkedIn" className="h-12 mx-auto" />
+  <img src="/src/logos/palantir.svg" alt="Palantir" className="h-12 mx-auto" />
+  <img src="/src/logos/citadel.svg" alt="Citadel" className="h-12 mx-auto" />
+  <img src="/src/logos/tophatter.svg" alt="Tophatter" className="h-12 mx-auto" />
+</motion.div>
+
 
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-blue-600 text-white py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition duration-300 shadow-md"
+          className="bg-white text-black py-3 px-8 rounded-lg text-lg hover:bg-blue-300 transition duration-300 shadow-md"
         >
-          Meet your matches
+          JOIN  WAITLIST
         </motion.button>
       </div>
     </section>

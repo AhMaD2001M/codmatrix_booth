@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'EuropaGrotesk';
+  src: url('/src/assets/fonts/EuropaGroteskNo2SH-Bold.woff2') format('woff2'),
+       url('/src/assets/fonts/EuropaGroteskNo2SH-Bold.woff') format('woff'),
+       url('/src/assets/fonts/EuropaGroteskNo2SH-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

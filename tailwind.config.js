@@ -13,6 +13,9 @@ export default {
         marquee: "marquee 18s linear infinite",
         marquee2: "marquee 18s linear infinite 9s", // offset for seamless loop
       },
+      fontFamily: {
+        europa: ['EuropaGrotesk', 'sans-serif'],
+      },
     },
   },
   plugins: [],
