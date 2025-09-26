@@ -45,7 +45,7 @@ export default function Team() {
         className="overflow-hidden rounded-2xl shadow-lg"
       >
         <img
-          src="/src/pictures/3a426350-15f7-4851-b7d5-9a3404bbeb1a.png" // update path
+          src="/src/pictures/3a426350-15f7-4851-b7d5-9a3404bbeb1a.png" 
           alt="Team at RealRoots"
           className="w-full h-auto object-cover"
         />
