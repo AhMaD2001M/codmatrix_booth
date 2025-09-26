@@ -7,6 +7,7 @@ import FifthComponent from './components/fifthComponent';
 import Memories2 from './components/memories2';
 import SixthComponent from './components/sixthcomponent';
 import Team from './components/team';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
       <FifthComponent />
       <SixthComponent />
       <Team />
-      
+      <Footer />
     </div>
   );
 }
