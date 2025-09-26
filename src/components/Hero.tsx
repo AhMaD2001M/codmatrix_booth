@@ -10,27 +10,20 @@ export default function Hero() {
     const SENSITIVITY = 0.0015;
 
     const onWheel = (e: WheelEvent) => {
-      // Check if user is in hero section
       const heroTop = heroRef.current?.getBoundingClientRect().top ?? 0;
       const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
       const inHero = heroTop <= window.innerHeight && heroBottom >= 0;
 
-      if (!inHero) return; // only animate when inside hero
+      if (!inHero) return;
       e.preventDefault();
 
-      // Scroll forward or reverse
       const next = Math.min(1, Math.max(0, revealProgress + e.deltaY * SENSITIVITY));
       setRevealProgress(next);
 
-      // Lock scroll inside hero until animation is complete
       if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
 
-      // Unlock only when fully revealed
-      if (next >= 1) {
-        setIsHeroLocked(false);
-      } else if (next <= 0) {
-        setIsHeroLocked(true);
-      }
+      if (next >= 1) setIsHeroLocked(false);
+      else if (next <= 0) setIsHeroLocked(true);
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -53,11 +46,8 @@ export default function Hero() {
 
         if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
 
-        if (next >= 1) {
-          setIsHeroLocked(false);
-        } else if (next <= 0) {
-          setIsHeroLocked(true);
-        }
+        if (next >= 1) setIsHeroLocked(false);
+        else if (next <= 0) setIsHeroLocked(true);
       }
       lastTouchYRef.current = currentY;
     };
@@ -94,20 +84,48 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
 
       {/* Title + Subtitle */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center select-none px-10">
-          <h1 className="font-europa-Grotesk-No-2 text-[12vw] md:text-[10vw] lg:text-[8vw] font-black text-white tracking-wider leading-none">
+      <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-10">
+        <div className="text-center select-none max-w-[95%] sm:max-w-[85%] md:max-w-[70%]">
+          <h1
+            className="
+              font-europa-Grotesk-No-2 
+              text-[clamp(2.5rem,8vw,6rem)] 
+              md:text-[clamp(3rem,6vw,5rem)] 
+              font-black 
+              text-white 
+              tracking-tight 
+              leading-tight
+            "
+          >
             TOP 1% ENGINEERS
           </h1>
-          <p className="mt-4 text-sm md:text-base tracking-[0.3em] font-europa text-white/80">
+          <p
+            className="
+              mt-3 sm:mt-4 
+              text-xs sm:text-sm md:text-base 
+              tracking-[0.2em] sm:tracking-[0.3em] 
+              font-europa 
+              text-white/80
+            "
+          >
             WHEN LEARNING • BECOMES • A SUCCESS
           </p>
         </div>
       </div>
 
       {/* White bordered button */}
-      <div className="absolute bottom-10 w-full flex justify-center">
-        <button className="px-8 py-3 border-2 border-white text-white uppercase tracking-widest font-semibold rounded-lg transition-all duration-500 ease-in-out hover:bg-white hover:text-black">
+      <div className="absolute bottom-6 sm:bottom-10 w-full flex justify-center px-4">
+        <button
+          className="
+            px-6 sm:px-8 py-2 sm:py-3 
+            border-2 border-white text-white 
+            uppercase tracking-widest font-semibold 
+            rounded-lg 
+            transition-all duration-500 ease-in-out 
+            hover:bg-white hover:text-black 
+            text-xs sm:text-sm md:text-base
+          "
+        >
           Join The Wait List
         </button>
       </div>
