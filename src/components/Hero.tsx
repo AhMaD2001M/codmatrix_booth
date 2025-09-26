@@ -7,34 +7,61 @@ export default function Hero() {
   const lastTouchYRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!isHeroLocked) return;
     const SENSITIVITY = 0.0015;
 
     const onWheel = (e: WheelEvent) => {
-      if (!isHeroLocked) return;
+      // Check if user is in hero section
+      const heroTop = heroRef.current?.getBoundingClientRect().top ?? 0;
+      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
+      const inHero = heroTop <= window.innerHeight && heroBottom >= 0;
+
+      if (!inHero) return; // only animate when inside hero
       e.preventDefault();
+
+      // Scroll forward or reverse
       const next = Math.min(1, Math.max(0, revealProgress + e.deltaY * SENSITIVITY));
       setRevealProgress(next);
+
+      // Lock scroll inside hero until animation is complete
       if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
-      if (next >= 1) setIsHeroLocked(false);
+
+      // Unlock only when fully revealed
+      if (next >= 1) {
+        setIsHeroLocked(false);
+      } else if (next <= 0) {
+        setIsHeroLocked(true);
+      }
     };
 
     const onTouchStart = (e: TouchEvent) => {
       lastTouchYRef.current = e.touches[0]?.clientY ?? null;
     };
+
     const onTouchMove = (e: TouchEvent) => {
-      if (!isHeroLocked) return;
+      const heroTop = heroRef.current?.getBoundingClientRect().top ?? 0;
+      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
+      const inHero = heroTop <= window.innerHeight && heroBottom >= 0;
+
+      if (!inHero) return;
       e.preventDefault();
+
       const currentY = e.touches[0]?.clientY ?? null;
       if (currentY != null && lastTouchYRef.current != null) {
         const delta = lastTouchYRef.current - currentY;
         const next = Math.min(1, Math.max(0, revealProgress + delta * SENSITIVITY));
         setRevealProgress(next);
+
         if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
-        if (next >= 1) setIsHeroLocked(false);
+
+        if (next >= 1) {
+          setIsHeroLocked(false);
+        } else if (next <= 0) {
+          setIsHeroLocked(true);
+        }
       }
       lastTouchYRef.current = currentY;
     };
+
     const onTouchEnd = () => {
       lastTouchYRef.current = null;
     };
@@ -50,7 +77,7 @@ export default function Hero() {
       window.removeEventListener("touchmove", onTouchMove as EventListener);
       window.removeEventListener("touchend", onTouchEnd as EventListener);
     };
-  }, [isHeroLocked, revealProgress]);
+  }, [revealProgress]);
 
   return (
     <section ref={heroRef} className="relative h-screen overflow-hidden">
@@ -78,7 +105,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ✅ White bordered button at bottom */}
+      {/* White bordered button */}
       <div className="absolute bottom-10 w-full flex justify-center">
         <button className="px-8 py-3 border-2 border-white text-white uppercase tracking-widest font-semibold rounded-lg transition-all duration-500 ease-in-out hover:bg-white hover:text-black">
           Join The Wait List

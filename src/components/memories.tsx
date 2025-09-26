@@ -90,24 +90,25 @@ const Memories: React.FC = () => {
   whileInView={{ opacity: 1 }}
   transition={{ duration: 1, delay: 0.3 }}
   viewport={{ once: true }}
-  className="grid grid-cols-2 sm:grid-cols-8 gap-8 items-center justify-center"
+  className="grid grid-cols-4  sm:grid-cols-8 gap-8 items-center justify-center"
 >
   {/* Example logos - replace src with your actual paths */}
-  <img src="/src/logos/google.svg" alt="FAANG" className="h-12 mx-auto" />
-  <img src="/src/logos/apple.svg" alt="Apple" className="h-12 mx-auto" />
-  <img src="/src/logos/microsoft.svg" alt="Microsoft" className="h-12 mx-auto" />
-  <img src="/src/logos/openai.svg" alt="OpenAI" className="h-12 mx-auto" />
-  <img src="/src/logos/linkedin.svg" alt="LinkedIn" className="h-12 mx-auto" />
-  <img src="/src/logos/palantir.svg" alt="Palantir" className="h-12 mx-auto" />
-  <img src="/src/logos/citadel.svg" alt="Citadel" className="h-12 mx-auto" />
-  <img src="/src/logos/tophatter.svg" alt="Tophatter" className="h-12 mx-auto" />
+  
+  <img src="/src/pictures/pic1.jpg " alt="FAANG" className="pl-8 h-8 mx-auto" />
+  <img src="/src/pictures/pic2.png" alt="Apple" className="h-8 mx-auto" />
+  <img src="/src/pictures/microsoft.png" alt="Microsoft" className="h-8 mx-auto" />
+  <img src="/src/pictures/opena.png" alt="OpenAI" className="h-8 mx-auto" />
+  <img src="/src/pictures/linkdin.png" alt="LinkedIn" className="h-8 mx-auto" />
+  <img src="/src/pictures/Palantir.png" alt="Palantir" className="h-8 mx-auto" />
+  <img src="/src/pictures/Citadel.png" alt="Citadel" className="h-8 mx-auto" />
+  <img src="/src/pictures/tophatter.png" alt="Tophatter" className="h-8 mx-auto" />
 </motion.div>
 
 
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-white text-black py-3 px-8 rounded-lg text-lg hover:bg-blue-300 transition duration-300 shadow-md"
+          className="bg-white text-black py-3 mt-8 px-8 rounded-lg text-lg hover:bg-blue-300 transition duration-300 shadow-md"
         >
           JOIN  WAITLIST
         </motion.button>

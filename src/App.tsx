@@ -6,7 +6,7 @@ import Memories from './components/memories';
 import FifthComponent from './components/fifthComponent';
 import Memories2 from './components/memories2';
 import SixthComponent from './components/sixthcomponent';
-
+import Team from './components/team';
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
       <Memories2 />
       <FifthComponent />
       <SixthComponent />
-      
+      <Team />
       
     </div>
   );
