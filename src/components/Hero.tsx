@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from "react";
 
 export default function Hero() {
   const [revealProgress, setRevealProgress] = useState(0);
-  const [isHeroLocked, setIsHeroLocked] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
   const lastTouchYRef = useRef<number | null>(null);
 
@@ -15,15 +14,24 @@ export default function Hero() {
       const inHero = heroTop <= window.innerHeight && heroBottom >= 0;
 
       if (!inHero) return;
+
+      // If animation is complete and user is scrolling down, allow normal scroll
+      if (revealProgress >= 1 && e.deltaY > 0) {
+        return; // Allow normal scrolling
+      }
+
+      // If animation is at start and user is scrolling up, allow normal scroll
+      if (revealProgress <= 0 && e.deltaY < 0) {
+        return; // Allow normal scrolling
+      }
+
+      // Otherwise, handle the animation
       e.preventDefault();
 
       const next = Math.min(1, Math.max(0, revealProgress + e.deltaY * SENSITIVITY));
       setRevealProgress(next);
 
       if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
-
-      if (next >= 1) setIsHeroLocked(false);
-      else if (next <= 0) setIsHeroLocked(true);
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -36,18 +44,28 @@ export default function Hero() {
       const inHero = heroTop <= window.innerHeight && heroBottom >= 0;
 
       if (!inHero) return;
-      e.preventDefault();
 
       const currentY = e.touches[0]?.clientY ?? null;
       if (currentY != null && lastTouchYRef.current != null) {
         const delta = lastTouchYRef.current - currentY;
+        
+        // If animation is complete and user is scrolling down, allow normal scroll
+        if (revealProgress >= 1 && delta > 0) {
+          return; // Allow normal scrolling
+        }
+
+        // If animation is at start and user is scrolling up, allow normal scroll
+        if (revealProgress <= 0 && delta < 0) {
+          return; // Allow normal scrolling
+        }
+
+        // Otherwise, handle the animation
+        e.preventDefault();
+
         const next = Math.min(1, Math.max(0, revealProgress + delta * SENSITIVITY));
         setRevealProgress(next);
 
         if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
-
-        if (next >= 1) setIsHeroLocked(false);
-        else if (next <= 0) setIsHeroLocked(true);
       }
       lastTouchYRef.current = currentY;
     };
@@ -70,7 +88,7 @@ export default function Hero() {
   }, [revealProgress]);
 
   return (
-    <section ref={heroRef} className="relative h-screen overflow-hidden">
+    <section ref={heroRef} className="relative h-screen">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
