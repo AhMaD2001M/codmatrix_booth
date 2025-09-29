@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Roadmap from './components/Roadmap';
@@ -10,20 +11,46 @@ import Team from './components/team';
 import Footer from './components/footer';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="min-h-[300vh] bg-black">
+    <div className="min-h-[300vh] bg-black scroll-smooth">
       {/* Fixed Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 p-6">
         <div className="flex justify-between items-center text-white text-sm font-medium tracking-wider">
           <div className="text-lg font-bold">
             Code Matrix<br />
           </div>
+          {/* Desktop Links */}
           <div className="hidden md:flex space-x-14">
-            <a href="#" className="hover:text-blue-300 transition-colors">THE PROJECT</a>
-            <a href="#" className="hover:text-blue-300 transition-colors">IMPACT IN ACTION</a>
-            <a href="#" className="hover:text-blue-300 transition-colors">JOIN THE JOURNEY</a>
+            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">THE PROJECT</a>
+            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">IMPACT IN ACTION</a>
+            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">JOIN THE JOURNEY</a>
           </div>
+          {/* Hamburger Button */}
+          <button
+            aria-label="Open menu"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-white/20 hover:bg-white/10 focus:outline-none"
+          >
+            <span className="sr-only">Toggle menu</span>
+            <div className="relative w-6 h-6">
+              <span className={`absolute left-0 top-1 block h-0.5 w-6 bg-white transition-transform ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`}></span>
+              <span className={`absolute left-0 top-2.5 block h-0.5 w-6 bg-white transition-opacity ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute left-0 bottom-1 block h-0.5 w-6 bg-white transition-transform ${isMenuOpen ? '-translate-y-2 -rotate-45' : ''}`}></span>
+            </div>
+          </button>
         </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="mt-4 md:hidden text-white text-sm font-medium tracking-wider bg-black/80 backdrop-blur-sm rounded-lg border border-white/10">
+            <div className="flex flex-col divide-y divide-white/10">
+              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>THE PROJECT</a>
+              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>IMPACT IN ACTION</a>
+              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>JOIN THE JOURNEY</a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}

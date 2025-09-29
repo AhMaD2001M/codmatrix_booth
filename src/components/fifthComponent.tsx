@@ -30,7 +30,7 @@ const workSteps = [
 
 export default function WorkProcess() {
   return (
-    <section className="relative py-60 bg-black">
+    <section className="relative bg-black py-20 sm:py-24 md:py-60">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ export default function WorkProcess() {
       </motion.h2>
 
       {/* Circles */}
-      <div className="relative flex justify-center items-center px-6 flex-wrap gap-8">
+      <div className="relative px-4 sm:px-6 md:px-8 grid grid-cols-1 gap-6 place-items-center md:flex md:flex-wrap md:justify-center md:items-center md:gap-8">
         {workSteps.map((step, index) => {
           const isFirst = index === 0;
           const isLast = index === workSteps.length - 1;
@@ -57,8 +57,8 @@ export default function WorkProcess() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className={`relative flex flex-col items-center justify-center
-                w-72 h-72 rounded-full border-4 border-gray-200 text-center p-8
-                bg-white shadow-md -ml-20 first:ml-0
+                w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full border-4 border-gray-200 text-center p-6 sm:p-7 md:p-8
+                bg-white shadow-md md:-ml-20 md:first:ml-0
                 ${isFirst || isLast ? "z-20" : "z-10"}
               `}
               style={{
@@ -69,12 +69,12 @@ export default function WorkProcess() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 flex items-center justify-center [--orbit-radius:104px] sm:[--orbit-radius:120px] md:[--orbit-radius:136px]"
               >
                 <div
-                  className="w-4 h-4 bg-blue-500 rounded-full shadow-md"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-blue-500 rounded-full shadow-md"
                   style={{
-                    transform: `translateY(-136px)`, // radius = 72/2 + border + padding approx
+                    transform: "translateY(calc(var(--orbit-radius) * -1))",
                   }}
                 />
               </motion.div>
@@ -97,7 +97,7 @@ export default function WorkProcess() {
       </div>
 
       {/* Button */}
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-10 sm:mt-12 px-20">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

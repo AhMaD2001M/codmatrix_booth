@@ -6,7 +6,7 @@ export default function Hero() {
   const lastTouchYRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const SENSITIVITY = 0.0015;
+    const SENSITIVITY = 0.002; // Increased sensitivity for smoother response
 
     const onWheel = (e: WheelEvent) => {
       const heroTop = heroRef.current?.getBoundingClientRect().top ?? 0;
@@ -31,7 +31,14 @@ export default function Hero() {
       const next = Math.min(1, Math.max(0, revealProgress + e.deltaY * SENSITIVITY));
       setRevealProgress(next);
 
-      if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
+      // Smooth scroll to top with easing
+      if (window.scrollY !== 0) {
+        window.scrollTo({ 
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth' 
+        });
+      }
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -65,7 +72,14 @@ export default function Hero() {
         const next = Math.min(1, Math.max(0, revealProgress + delta * SENSITIVITY));
         setRevealProgress(next);
 
-        if (window.scrollY !== 0) window.scrollTo({ top: 0, left: 0 });
+        // Smooth scroll to top with easing
+        if (window.scrollY !== 0) {
+          window.scrollTo({ 
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
+        }
       }
       lastTouchYRef.current = currentY;
     };
@@ -161,7 +175,7 @@ export default function Hero() {
           return (
             <div
               key={i}
-              className="absolute top-0 bottom-0 bg-black"
+              className="absolute top-0 bottom-0 bg-black transition-all duration-300 ease-out"
               style={{
                 left: `${leftPercent}%`,
                 width: `${widthPercent}%`,
