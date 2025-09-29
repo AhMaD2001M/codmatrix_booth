@@ -6,7 +6,8 @@ export default function Hero() {
   const lastTouchYRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const SENSITIVITY = 0.002; // Increased sensitivity for smoother response
+    const SENSITIVITY = 0.006; // Increased sensitivity for quicker progress
+    const PASS_THROUGH_THRESHOLD = 0.98; // allow native scroll near ends
 
     const onWheel = (e: WheelEvent) => {
       const heroTop = heroRef.current?.getBoundingClientRect().top ?? 0;
@@ -15,14 +16,10 @@ export default function Hero() {
 
       if (!inHero) return;
 
-      // If animation is complete and user is scrolling down, allow normal scroll
-      if (revealProgress >= 1 && e.deltaY > 0) {
-        return; // Allow normal scrolling
-      }
-
-      // If animation is at start and user is scrolling up, allow normal scroll
-      if (revealProgress <= 0 && e.deltaY < 0) {
-        return; // Allow normal scrolling
+      // Allow native scroll when near the end in the scroll direction
+      if ((revealProgress >= PASS_THROUGH_THRESHOLD && e.deltaY > 0) ||
+          (revealProgress <= 1 - PASS_THROUGH_THRESHOLD && e.deltaY < 0)) {
+        return;
       }
 
       // Otherwise, handle the animation
@@ -30,15 +27,6 @@ export default function Hero() {
 
       const next = Math.min(1, Math.max(0, revealProgress + e.deltaY * SENSITIVITY));
       setRevealProgress(next);
-
-      // Smooth scroll to top with easing
-      if (window.scrollY !== 0) {
-        window.scrollTo({ 
-          top: 0, 
-          left: 0, 
-          behavior: 'smooth' 
-        });
-      }
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -56,14 +44,10 @@ export default function Hero() {
       if (currentY != null && lastTouchYRef.current != null) {
         const delta = lastTouchYRef.current - currentY;
         
-        // If animation is complete and user is scrolling down, allow normal scroll
-        if (revealProgress >= 1 && delta > 0) {
-          return; // Allow normal scrolling
-        }
-
-        // If animation is at start and user is scrolling up, allow normal scroll
-        if (revealProgress <= 0 && delta < 0) {
-          return; // Allow normal scrolling
+        // Allow native scroll when near the end in the scroll direction
+        if ((revealProgress >= PASS_THROUGH_THRESHOLD && delta > 0) ||
+            (revealProgress <= 1 - PASS_THROUGH_THRESHOLD && delta < 0)) {
+          return;
         }
 
         // Otherwise, handle the animation
@@ -71,15 +55,6 @@ export default function Hero() {
 
         const next = Math.min(1, Math.max(0, revealProgress + delta * SENSITIVITY));
         setRevealProgress(next);
-
-        // Smooth scroll to top with easing
-        if (window.scrollY !== 0) {
-          window.scrollTo({ 
-            top: 0, 
-            left: 0, 
-            behavior: 'smooth' 
-          });
-        }
       }
       lastTouchYRef.current = currentY;
     };
@@ -117,16 +92,11 @@ export default function Hero() {
 
       {/* Title + Subtitle */}
       <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-10">
-        <div className="text-center select-none max-w-[95%] sm:max-w-[85%] md:max-w-[70%]">
+        <div className="text-center select-none w-full max-w-none">
           <h1
             className="
-              font-europa-Grotesk-No-2 
-              text-[clamp(2.5rem,8vw,6rem)] 
-              md:text-[clamp(3rem,6vw,5rem)] 
-              font-black 
-              text-white 
-              tracking-tight 
-              leading-tight
+              font-black text-white text-center leading-none tracking-tighter 
+              text-[clamp(2.25rem,10vw,8rem)] whitespace-nowrap
             "
           >
             TOP 1% ENGINEERS

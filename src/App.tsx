@@ -21,10 +21,12 @@ function App() {
             Code Matrix<br />
           </div>
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-14">
-            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">THE PROJECT</a>
-            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">IMPACT IN ACTION</a>
-            <a href="#" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">JOIN THE JOURNEY</a>
+          <div className="hidden md:flex space-x-10 lg:space-x-14">
+            <a href="#about" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">About Us</a>
+            <a href="#what" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">What We Do</a>
+            <a href="#curriculum" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">Curriculum</a>
+            <a href="#contact" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">Contact Us</a>
+            <a href="#book" className="hover:text-blue-300 transition-all duration-300 ease-in-out hover:scale-105">Book a Call</a>
           </div>
           {/* Hamburger Button */}
           <button
@@ -45,9 +47,11 @@ function App() {
         {isMenuOpen && (
           <div className="mt-4 md:hidden text-white text-sm font-medium tracking-wider bg-black/80 backdrop-blur-sm rounded-lg border border-white/10">
             <div className="flex flex-col divide-y divide-white/10">
-              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>THE PROJECT</a>
-              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>IMPACT IN ACTION</a>
-              <a href="#" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>JOIN THE JOURNEY</a>
+              <a href="#about" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>About Us</a>
+              <a href="#what" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>What We Do</a>
+              <a href="#curriculum" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>Curriculum</a>
+              <a href="#contact" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>Contact Us</a>
+              <a href="#book" className="px-4 py-3 hover:bg-white/10" onClick={() => setIsMenuOpen(false)}>Book a Call</a>
             </div>
           </div>
         )}

@@ -8,10 +8,15 @@ export default {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        marqueeLoop: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         marquee: "marquee 18s linear infinite",
         marquee2: "marquee 18s linear infinite 9s", // offset for seamless loop
+        marqueeLoop: "marqueeLoop 6s linear infinite",
       },
       fontFamily: {
         europa: ['EuropaGrotesk', 'sans-serif'],

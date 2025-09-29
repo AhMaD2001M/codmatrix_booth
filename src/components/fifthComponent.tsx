@@ -37,9 +37,9 @@ export default function WorkProcess() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-4xl text-white md:text-5xl font-light text-center mb-16"
+        className="text-4xl relative text-white md:text-5xl font-light text-center mb-16"
       >
-        ( Weekly Schedule )
+         Weekly Schedule 
       </motion.h2>
 
       {/* Circles */}
@@ -72,7 +72,7 @@ export default function WorkProcess() {
                 className="absolute inset-0 flex items-center justify-center [--orbit-radius:104px] sm:[--orbit-radius:120px] md:[--orbit-radius:136px]"
               >
                 <div
-                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-blue-500 rounded-full shadow-md"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-orange-500 rounded-full shadow-md"
                   style={{
                     transform: "translateY(calc(var(--orbit-radius) * -1))",
                   }}
@@ -101,7 +101,7 @@ export default function WorkProcess() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-yellow-300 px-6 py-3 rounded-md font-medium shadow hover:bg-yellow-400 transition"
+          className="bg-orange-500 px-6 py-3 rounded-md font-medium shadow hover:bg-orange-400 transition"
         >
           join Waitlist
         </motion.button>

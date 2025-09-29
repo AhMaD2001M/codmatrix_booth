@@ -23,7 +23,7 @@ export default function TimelineSection() {
   ];
 
   return (
-    <section className="relative w-full bg-black text-white py-16 sm:py-20 md:py-28 min-h-screen">
+    <section className="relative w-full bg-black  text-white py-16 sm:py-20 md:py-28 min-h-screen">
       {/* Roadmap Heading */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
