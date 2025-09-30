@@ -10,7 +10,7 @@ import img5 from "../pictures/100a2702-734d-437d-9ac6-0637d418d021.png";
 const FifthComponent: React.FC = () => {
 
   return (
-    <section className="relative min-h-[200vh] bg-gray-100">
+    <section className="relative min-h-[150vh] bg-gray-100">
       {/* Static Backgrounds */}
       <div
         className="absolute top-1/2 left-2 sm:left-4 w-[60%] sm:w-[35%] h-[30vh] sm:h-[55vh] rounded-xl bg-cover bg-center shadow-lg"
@@ -34,18 +34,18 @@ const FifthComponent: React.FC = () => {
       />
 
       {/* Sticky Text Content (no motion) */}
-      <div className="sticky top-0 sm:top-24 lg:top-32 z-20 flex flex-col items-center justify-center text-center px-2 sm:px-6 md:px-12 h-screen">
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-500">
+      <div className="sticky lg:top-24lg:top-32 z-20 flex flex-col items-center justify-center text-center px-2 sm:px-6 md:px-12 h-screen">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-black">
           ARE MEMORIES
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-gray-700 max-w-lg">
+        <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-black max-w-lg">
           With CODEMATRIX
         </p>
 
-        <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-600 max-w-xl">
-          CodeMatrix Academy is the most efficient way to bootstrap your prep
-          and guide you through the job hunting process. We focus on techniques
+        <p className="text-sm sm:text-base md:text-lg mb-2 sm:mb-2 text-black shadow-md shadow-white max-w-xl">
+         <p className="shadow-md shadow-white"> CodeMatrix Academy is the most efficient way to bootstrap your prep</p>
+          <p className="shadow-md shadow-white  ">and guide you through the job hunting process. We focus on techniques</p>
           rather than just problems, making interviews much easier to crack.
         </p>
       </div>

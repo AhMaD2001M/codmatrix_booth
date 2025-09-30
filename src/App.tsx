@@ -3,9 +3,9 @@ import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Roadmap from './components/Roadmap';
 import FourComponent from './components/FourComponent';
-import Memories from './components/memories';
+import { WhatWeOffer } from './components/whatWeOffer';
 import FifthComponent from './components/fifthComponent';
-import Memories2 from './components/memories2';
+import Testimonial from './components/testimonial';
 import SixthComponent from './components/sixthcomponent';
 import Team from './components/team';
 import Footer from './components/footer';
@@ -66,10 +66,10 @@ function App() {
       {/* Roadmap Section */}
       <Roadmap />
       <FourComponent />
-      <Memories />
-      <Memories2 />
+      <WhatWeOffer />
       <FifthComponent />
       <SixthComponent />
+      <Testimonial />
       <Team />
       <Footer />
     </div>

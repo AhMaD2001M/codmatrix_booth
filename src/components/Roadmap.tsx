@@ -23,7 +23,7 @@ export default function TimelineSection() {
   ];
 
   return (
-    <section className="relative w-full bg-black  text-white py-16 sm:py-20 md:py-28 min-h-screen">
+    <section className="relative w-full bg-black text-white py-16 sm:py-20 md:py-28 min-h-screen">
       {/* Roadmap Heading */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -40,11 +40,17 @@ export default function TimelineSection() {
         </p>
       </motion.div>
 
-      {/* Vertical line (hidden on mobile) */}
-      <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gradient-to-b from-gray-600 via-gray-500 to-gray-600 h-[65%] top-[180px] lg:top-[200px]"></div>
-
       {/* Timeline */}
       <div className="relative max-w-6xl mx-auto flex flex-col space-y-16 sm:space-y-20 md:space-y-28">
+        {/* Animated vertical line */}
+        <motion.div
+          initial={{ height: 0 }}
+          whileInView={{ height: "100%" }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+          viewport={{ once: false, amount: 0.2 }}
+          className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-gradient-to-b from-orange-500 via-gray-500 to-orange-500 top-[60px] rounded-full"
+        />
+
         {steps.map((step, index) => (
           <motion.div
             key={index}
@@ -58,9 +64,9 @@ export default function TimelineSection() {
               x: 0,
               scale: 1,
             }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{
-              duration: 0.6,
+              duration: 0.7,
               delay: index * 0.2,
               ease: "easeOut",
             }}
@@ -68,19 +74,20 @@ export default function TimelineSection() {
               ${step.side === "left" ? "md:justify-start" : "md:justify-end"} 
               justify-center`}
           >
-            {/* Timeline dot (hidden on mobile to avoid overlapping text) */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-black shadow-lg z-10" />
+            {/* Timeline dot */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-7 h-7 bg-orange-500 rounded-full border-4 border-black shadow-lg z-10" />
 
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
               className={`
                 w-[90%] sm:w-4/5 md:w-1/2 
                 text-center md:text-left 
                 ${step.side === "left" ? "md:pr-10" : "md:pl-10"}
+                bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-lg hover:scale-[1.02] transition-transform
               `}
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">
