@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
 
-const features = [
+const reviews = [
   {
-    title: "Optimize Affiliate Marketing Effectiveness",
-    desc: "Use artificial intelligence to analyze data and recommend strategies to help Affiliate campaigns achieve the highest performance at lower costs",
-    icon: "📊",
+    title: "Batch 2022 Review",
+    desc: "“Code Matrix completely changed how I think about problem-solving. The guidance and structured roadmap gave me confidence to crack coding interviews.”",
+    icon: "🎓",
   },
   {
-    title: "Automate your sales process",
-    desc: "Combine Affiliate management tools and AI content generation to save time, reduce manual effort, and speed up campaign deployment",
-    icon: "⚙️",
+    title: "Batch 2023 Feedback",
+    desc: "“The environment was supportive and motivating. Learned full-stack development from scratch, and now I’m contributing to real-world projects.”",
+    icon: "🎓",
   },
   {
-    title: "Sustainable Revenue Growth",
-    desc: "Provide reports, trend analysis and improvement suggestions, ensuring stable and long-term revenue growth for marketers",
-    icon: "📈",
+    title: "Batch 2024 Experience",
+    desc: "“From data structures to system design, Code Matrix made everything smooth. The projects were industry-focused and boosted my portfolio.”",
+    icon: "🎓",
   },
   {
-    title: "Scaling up your business easily",
-    desc: "Helps users quickly expand the number of products, markets and promotion channels while maintaining management efficiency",
-    icon: "🚀",
+    title: "Batch 2025 Early Reviews",
+    desc: "“Excited to be part of Code Matrix. The mentorship, peer group, and career guidance have already started making a difference.”",
+    icon: "🎓",
   },
 ];
 
@@ -32,32 +32,32 @@ export default function Testimonial() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-2xl md:text-3xl font-semibold text-gray-800 mb-12"
+        className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center"
       >
-        Business Goal
+         Code Matrix Journey 
       </motion.h2>
 
-      {/* Features Grid */}
+      {/* Reviews Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {features.map((f, i) => (
+        {reviews.map((r, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-start text-left hover:shadow-md transition"
+            className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-start text-left hover:shadow-lg transition"
           >
-            <div className="text-3xl mb-4">{f.icon}</div>
+            <div className="text-3xl mb-4">{r.icon}</div>
             <h3 className="text-lg font-semibold text-green-900 mb-3">
-              {f.title}
+              {r.title}
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
+            <p className="text-sm text-gray-700 leading-relaxed">{r.desc}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Testimonial */}
+      {/* Testimonial Quote */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -66,8 +66,9 @@ export default function Testimonial() {
         className="bg-transparent text-center md:text-left"
       >
         <p className="text-xl md:text-2xl italic text-gray-700 leading-relaxed mb-6 max-w-4xl mx-auto">
-          "Thanks to the development team, my idea of Affiliate AI became a reality. 
-          The system runs smoothly, is easy to expand, and integrates AI as expected."
+          "Code Matrix isn’t just a course — it’s a launchpad. From coding
+          fundamentals to building real-world products, every batch proves that
+          passion + guidance = success."
         </p>
 
         <div className="flex items-center justify-center md:justify-start gap-4">
@@ -77,10 +78,8 @@ export default function Testimonial() {
             className="w-14 h-14 rounded-full object-cover"
           />
           <div className="text-left">
-            <h4 className="text-lg font-semibold text-gray-800">Ngo Truong</h4>
-            <p className="text-sm text-gray-600">
-              Co-Founder Affiliate AI
-            </p>
+            <h4 className="text-lg font-semibold text-gray-800">Alumni Voices</h4>
+            <p className="text-sm text-gray-600">Code Matrix Graduates</p>
           </div>
         </div>
       </motion.div>
