@@ -99,7 +99,7 @@ export default function Hero() {
               text-[clamp(2.25rem,10vw,8rem)] whitespace-nowrap
             "
           >
-            TOP 1% ENGINEERS
+            TOP 1% ENGINEER
           </h1>
           <p
             className="

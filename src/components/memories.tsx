@@ -6,7 +6,7 @@ import img3 from "../pictures/0741d313-e3e5-4f5b-9f53-ccec7715f53c.png";
 import img4 from "../pictures/3a426350-15f7-4851-b7d5-9a3404bbeb1a.png";
 import img5 from "../pictures/100a2702-734d-437d-9ac6-0637d418d021.png";
 // Logos (use imports so paths work after build)
-import logoFaang from "../pictures/pic1.jpg";
+import logoFaang from "../pictures/pic1.png";
 import logoApple from "../pictures/pic2.png";
 import logoMicrosoft from "../pictures/microsoft.png";
 import logoOpenAI from "../pictures/openai.png";
@@ -21,7 +21,6 @@ const Memories: React.FC = () => {
     <section className="relative min-h-[200vh] bg-gray-100">
       {/* Background Images (static) */}
       <div
-        className="absolute top-1/2 left-2 sm:left-4 w-[50%] sm:w-[35%] h-[30vh] sm:h-[55vh] rounded-xl bg-cover bg-center shadow-lg"
         style={{ backgroundImage: `url(${img4})`, zIndex: 4, transform: "rotate(-6deg)" }}
       />
       <div
@@ -42,9 +41,9 @@ const Memories: React.FC = () => {
       />
 
       {/* Sticky Content */}
-      <div className="sticky top-0 sm:top-24 z-20 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-8 h-screen">
+      <div className=" relative  top-0 sm:top-18 z-20 flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-8 h-screen">
         <h1
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-500"
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-500"
         >
           Our Members Receive Offers From
         </h1>
